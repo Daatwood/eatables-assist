@@ -1,0 +1,11 @@
+= form_for(utensil) do |f|
+  - if utensil.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(utensil.errors.count, "error")
+        prohibited this utensil from being saved:
+      %ul
+        - utensil.errors.full_messages.each do |message|
+          %li= message
+  .actions
+    = f.submit

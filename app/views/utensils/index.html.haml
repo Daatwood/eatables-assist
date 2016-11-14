@@ -1,0 +1,14 @@
+%p#notice= notice
+%h1 Utensils
+%table
+  %thead
+    %tr
+      %th{:colspan => "3"}
+  %tbody
+    - @utensils.each do |utensil|
+      %tr
+        %td= link_to 'Show', utensil
+        %td= link_to 'Edit', edit_utensil_path(utensil)
+        %td= link_to 'Destroy', utensil, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Utensil', new_utensil_path

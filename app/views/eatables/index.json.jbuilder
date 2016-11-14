@@ -1,0 +1,1 @@
+json.array! @eatables, partial: 'eatables/eatable', as: :eatable

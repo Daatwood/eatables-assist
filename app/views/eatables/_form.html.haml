@@ -1,0 +1,11 @@
+= form_for(eatable) do |f|
+  - if eatable.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(eatable.errors.count, "error")
+        prohibited this eatable from being saved:
+      %ul
+        - eatable.errors.full_messages.each do |message|
+          %li= message
+  .actions
+    = f.submit

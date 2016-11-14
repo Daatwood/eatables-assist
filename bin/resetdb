@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "Dropping db.."
+rails db:drop
+echo "Creating db.."
+rails db:create
+echo "Migrating db.."
+rails db:migrate
+echo "Seeding db.."
+rails db:seed

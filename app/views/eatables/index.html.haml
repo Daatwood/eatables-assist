@@ -1,0 +1,14 @@
+%p#notice= notice
+%h1 Eatables
+%table
+  %thead
+    %tr
+      %th{:colspan => "3"}
+  %tbody
+    - @eatables.each do |eatable|
+      %tr
+        %td= link_to 'Show', eatable
+        %td= link_to 'Edit', edit_eatable_path(eatable)
+        %td= link_to 'Destroy', eatable, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Eatable', new_eatable_path

@@ -1,0 +1,2 @@
+module EatablesHelper
+end

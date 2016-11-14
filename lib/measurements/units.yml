@@ -1,0 +1,18 @@
+volumes:
+  - whole
+  - half
+  - quarter
+  - eighth
+  - taste
+  - cup
+  - tablespoon
+  - teaspoon
+  - gallon
+  - quart
+  - pint
+  - pound
+  - ounce
+temperatures:
+  - celsius
+  - farenheit
+  - kelvin
