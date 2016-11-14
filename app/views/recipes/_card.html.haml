@@ -1,0 +1,23 @@
+.card.medium.sticky-action
+  .card-image.waves-effect.waves-block.waves-light
+    %img.activator{src: "http://placehold.it/350x150"}
+
+  .card-content
+    %span.card-title.activator.grey-text.text-darken-4
+      = recipe.name
+      %i.material-icons.right more_vert
+    %p
+      = recipe.description
+  .card-action
+    = link_to "Read more", recipe
+    %a.right{:href => "#"}
+      .chip
+        %img{:alt => "Contact Person", :src => "http://placehold.it/32x32"}/
+        = "#{recipe.user.username.capitalize}"
+
+  .card-reveal
+    %span.card-title.grey-text.text-darken-4
+      = recipe.name
+      %i.material-icons.right close
+    - recipe.ingredients.each do |ingredient|
+      %p= ingredient.to_s

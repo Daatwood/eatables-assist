@@ -1,7 +1,6 @@
-.jumbotron
-  %h1 Cook Assist
-  %p This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.
-  %p
-    %a.btn.btn-primary.btn-lg Learn more
-
-= render partial: "recipes/preview", collection: @recipes, as: :recipe
+.col.s12.m6.l4
+  = render partial: "recipes/card", collection: @recipes_recent, as: :recipe
+.col.s12.m6.l4
+  = render partial: "recipes/card", collection: @recipes_rated, as: :recipe
+.col.s12.m6.l4
+  = render partial: "recipes/card", collection: @recipes_random, as: :recipe

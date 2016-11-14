@@ -45,8 +45,8 @@ gem 'haml-rails'
 # Use Turbolinks. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 
-# Use Bootstrap SASS for Bootstrap support
-gem 'bootstrap-sass', '~> 3.3'
+# Use Materialize SASS for Materialize support
+gem 'materialize-sass'
 
 # Use Font Awesome Rails for Font Awesome icons
 gem 'font-awesome-rails', '~> 4.6'
