@@ -1,23 +1,23 @@
-.card.medium.sticky-action
+.card.large.sticky-action.hoverable
   .card-image.waves-effect.waves-block.waves-light
-    %img.activator{src: "http://placehold.it/350x150"}
+    %img.activator{src: "http://placehold.it/350/#{random_color}/000000"}
 
   .card-content
     %span.card-title.activator.grey-text.text-darken-4
       = recipe.name
-      %i.material-icons.right more_vert
+      %i.material-icons.right expand_less
     %p
-      = recipe.description
+      = truncate(recipe.description, length: 78)
   .card-action
-    = link_to "Read more", recipe
-    %a.right{:href => "#"}
-      .chip
-        %img{:alt => "Contact Person", :src => "http://placehold.it/32x32"}/
-        = "#{recipe.user.username.capitalize}"
+    = link_to "view", recipe
+    .right
+      = render partial: 'users/chip', locals: {user: recipe.user}
 
   .card-reveal
     %span.card-title.grey-text.text-darken-4
       = recipe.name
-      %i.material-icons.right close
-    - recipe.ingredients.each do |ingredient|
-      %p= ingredient.to_s
+      %i.material-icons.right expand_more
+    %ul.collection
+      - recipe.ingredients.each do |ingredient|
+        %li.collection-item= ingredient.to_s
+    %p= recipe.description

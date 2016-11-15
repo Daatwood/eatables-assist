@@ -1,4 +1,47 @@
-%p#notice= notice
-= link_to 'Edit', edit_recipe_path(@recipe)
-|
-= link_to 'Back', recipes_path
+%nav.green
+  .nav-wrapper
+    .col.s12
+      %a.breadcrumb{href: root_path} Home
+      %a.breadcrumb{href: recipes_path} Recipes
+      %a.breadcrumb{href: user_path(@recipe.user)}= @recipe.user.username.capitalize
+.col.s12
+  .card.large.horizontal
+    .card-image
+      %img{:src => "http://placehold.it/600/#{random_color}/000000"}/
+    .card-stacked
+      .card-content
+        .center-align
+          %h3
+            = @recipe.name
+          = render 'recipes/rating', locals: {rating: rand(6)}
+        %p
+          = @recipe.description
+      .card-action
+        .col.s6.left-align
+          %a.tooltipped{"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "Save"}
+            %i.material-icons favorite_outline
+          %a.tooltipped{"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "Clone"}
+            %i.material-icons call_split
+        .col.s6.right-align
+          - if current_user == @recipe.user
+            %a.tooltipped{"data-delay" => "50", "data-position" => "bottom", "data-tooltip" => "Edit"}
+              %i.material-icons edit
+          - else
+            = render partial: 'users/chip', locals: {user: @recipe.user}
+
+.col.s12.m6.l5
+  %ul.collection.with-header
+    %li.collection-header
+      %h4
+        %i.material-icons shopping_basket
+        Ingredients
+    - @recipe.ingredients.each do |ingredient|
+      %li.collection-item= ingredient.to_s
+.col.s12.m6.l7
+  %ul.collection.with-header
+    %li.collection-header
+      %h4
+        %i.material-icons assignment
+        Directions
+    - @recipe.directions.each do |direction|
+      %li.collection-item= direction.to_s

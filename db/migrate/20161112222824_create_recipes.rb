@@ -28,7 +28,7 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
 
     create_table :recipes do |t|
       t.string :name, null: false
-      t.text :description
+      t.string :description
       t.column :data, :hstore
       t.belongs_to :user
       t.timestamps
