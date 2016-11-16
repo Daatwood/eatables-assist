@@ -1,4 +1,4 @@
-%nav
+%nav.light-green
   .nav-wrapper
     %a.brand-logo{href: root_path}
       %i.material-icons local_pizza
@@ -6,16 +6,6 @@
     %a.button-collapse{"data-activates" => "mobile-nav", :href => "#"}
       %i.material-icons menu
     %ul.right.hide-on-med-and-down
-      %li
-        %a{:href => "sass.html"} Search
-      %li
-        %a{:href => "badges.html"} Sign Up
-      %li
-        %a{:href => "collapsible.html"} Log In
-    %ul.right#mobile-nav.side-nav
-      %li
-        %a{:href => "sass.html"} Search
-      %li
-        %a{:href => "badges.html"} Sign Up
-      %li
-        %a{:href => "collapsible.html"} Log In
+      = render 'layouts/nav_links'
+    %ul#mobile-nav.side-nav
+      = render 'layouts/nav_links'

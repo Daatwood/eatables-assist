@@ -1,6 +1,25 @@
-.col.s12.m6.l4
-  = render partial: "recipes/card", collection: @recipes_recent, as: :recipe
-.col.s12.m6.l4
-  = render partial: "recipes/card", collection: @recipes_rated, as: :recipe
-.col.s12.m6.l4
-  = render partial: "recipes/card", collection: @recipes_random, as: :recipe
+.section#index-banner
+  .container
+    %br
+    %br
+    %h1.header.center.orange-text Find Eatables
+    .row
+      .col.s12.m10.l11
+        .input-field
+
+          %input#search.validate{:type => "text"}
+          %label{:for => "search"} Search recipes
+      .col.s12.m2.l1.center
+        .hide-on-small-only
+          %button.btn-floating.btn-large.waves-effect.waves-light.red{:name => "action", :type => "submit"}
+            %i.material-icons.prefix search
+        .hide-on-med-and-up
+          %button.btn.btn-large.waves-effect.waves-light.red{:name => "action", :type => "submit"}
+            Search
+.section.container.row
+  .col.s12.m6.l4
+    = render partial: "recipes/card", collection: @recipes_recent, as: :recipe
+  .col.s12.m6.l4
+    = render partial: "recipes/card", collection: @recipes_rated, as: :recipe
+  .col.s12.m6.l4
+    = render partial: "recipes/card", collection: @recipes_random, as: :recipe

@@ -4,7 +4,8 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
     create_table :users do |t|
       t.boolean :enabled, default: true
       t.string :username, null: false, default: ""
-
+      t.column :data, :hstore
+      
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -22,6 +23,11 @@ class CreateRecipes < ActiveRecord::Migration[5.0]
       t.datetime :last_sign_in_at
       t.inet     :current_sign_in_ip
       t.inet     :last_sign_in_ip
+
+      # History
+      t.integer :ingredient_history, array: true, default: []
+      t.integer :recipe_history, array: true, default: []
+      t.string :search_history, array: true, default: []
 
       t.timestamps
     end
